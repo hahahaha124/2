@@ -1,0 +1,21 @@
+on:
+  push:
+    branches: master
+
+jobs:
+  deploy:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: setup node
+        uses: actions/setup-node@v4.0.2
+        with:
+          node-version: "20"
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: install dependencies
+        run: npm i
+      - name: Build
+        run: npm run build
+      - name: verify folder
+        run: ls -l
