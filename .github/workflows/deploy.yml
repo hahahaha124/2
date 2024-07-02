@@ -16,7 +16,7 @@ jobs:
       - name: upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: index.html
+          name: index
           path: index
       - name: verify folder
         run: ls -l
