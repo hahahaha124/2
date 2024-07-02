@@ -23,4 +23,4 @@ jobs:
       - name: install netlify
         run: npm i -g netlify-cli
       - name: deploy to netlify
-        run: netlify deploy --dir=index.html --site ${{ secrets.NETLIFY_SITE_ID }} --auth ${{ secrets.NETLIFY_API_TOKEN }}
+        run: netlify deploy --dir=. --site ${{ secrets.NETLIFY_SITE_ID }} --auth ${{ secrets.NETLIFY_API_TOKEN }}
