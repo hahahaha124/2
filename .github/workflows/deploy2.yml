@@ -1,7 +1,7 @@
 on:
   push:
     paths: 
-      - 'project1/**'
+      - 'project2/**'
 
 jobs:
   deploy:
@@ -17,11 +17,11 @@ jobs:
       - name: upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: project1
-          path: project1
+          name: project2
+          path: project2
       - name: verify folder
         run: ls -l
       - name: install netlify
         run: npm i -g netlify-cli
-      - name: deploy to netlify 1
-        run: netlify deploy --prod --dir=project1 --site ${{ secrets.NETLIFY_SITE_ID }} --auth ${{ secrets.NETLIFY_API_TOKEN }}
+      - name: deploy to netlify 2
+        run: netlify deploy --prod --dir=project2 --site ${{ secrets.NETLIFY_SITE_ID2 }} --auth ${{ secrets.NETLIFY_API_TOKEN }}
