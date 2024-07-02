@@ -15,9 +15,16 @@ jobs:
           node-version: "20"
       - name: upload artifact
         uses: actions/upload-artifact@v4
+        if: steps.filter.outputs.project1 == 'true'
         with:
           name: project1
           path: project1
+      - name: upload artifact
+        uses: actions/upload-artifact@v4
+        if: steps.filter.outputs.project2 == 'true'
+        with:
+          name: project2
+          path: project2
       - name: verify folder
         run: ls -l
       - name: install netlify
