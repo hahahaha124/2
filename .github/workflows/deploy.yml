@@ -17,10 +17,10 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: index.html
-          path: index.html
+          path: index
       - name: verify folder
         run: ls -l
       - name: install netlify
         run: npm i -g netlify-cli
       - name: deploy to netlify
-        run: netlify deploy --dir=index.html --site ${{ secrets.NETLIFY_SITE_ID }} --auth ${{ secrets.NETLIFY_API_TOKEN }}
+        run: netlify deploy --dir=index --site ${{ secrets.NETLIFY_SITE_ID }} --auth ${{ secrets.NETLIFY_API_TOKEN }}
