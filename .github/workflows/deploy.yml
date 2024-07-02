@@ -9,6 +9,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        - name: setup node
+        uses: actions/setup-node@v4.0.2
+        with:
+          node-version: "20"
       - name: upload artifact
         uses: actions/upload-artifact@v4
         with: 
@@ -16,3 +20,7 @@ jobs:
           path: index.html
       - name: verify folder
         run: ls -l
+      - name: install netlify
+        run: npm i -g netlify-cli
+      - name: deploy to netlify
+        run: netlify deploy --dir=out --site ${{ secrets.NETLIFY_SITE_ID }} --auth ${{ secrets.NETLIFY_API_TOKEN }}
