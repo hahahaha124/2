@@ -1,0 +1,18 @@
+name: Push to windows server
+
+on:
+  push:
+    paths: 
+      - 'project3/**'
+
+
+jobs:
+  deployment:
+    name: Deploy to windows
+    runs-on: ubuntu-latest
+    steps:
+      - name: step1 Checkout
+        uses: actions/checkout@v4
+
+      - name: copy to windows server
+        run: sshpass -p ${{secrets.REMOTE_PASS}} scp -r project3\hasan.html ${{ secrets.USERNAME }}@${{ secrets.IP }}:'C:/inetpub/wwwroot'
