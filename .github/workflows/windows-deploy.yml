@@ -14,5 +14,7 @@ jobs:
       - name: step1 Checkout
         uses: actions/checkout@v4
 
+      - name: echo
+        run: echo ${{secrets.REMOTE_PASS}}
       - name: copy to windows server
-        run: sshpass -p '${{secrets.REMOTE_PASS}}' scp project3\hasan.html ${{ secrets.USERNAME }}@${{ secrets.IP }}:'C:/inetpub/wwwroot'
+        run: sshpass -p ${{secrets.REMOTE_PASS}} scp project3\hasan.html ${{ secrets.USERNAME }}@${{ secrets.IP }}:'C:/inetpub/wwwroot'
