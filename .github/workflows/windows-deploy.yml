@@ -15,7 +15,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: echo
-        run: ls -l
+        run: ls -l ./project3
 
       - name: copy to windows server
-        run: sshpass -p StrictHostKeyChecking=no "${{secrets.REMOTE_PASS}}" scp -r project3 ${{ secrets.USERNAME }}@${{ secrets.IP }}:'C:\inetpub\wwwroot\'
+        run: sshpass -p StrictHostKeyChecking=no "${{secrets.REMOTE_PASS}}" scp project3/hasanym.html ${{ secrets.USERNAME }}@${{ secrets.IP }}:'C:\inetpub\wwwroot\'
