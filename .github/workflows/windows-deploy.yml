@@ -18,4 +18,4 @@ jobs:
         run: ls -l
 
       - name: copy to windows server
-        run: sshpass -p StrictHostKeyChecking=no "${{secrets.REMOTE_PASS}}" scp project3 ${{ secrets.USERNAME }}@${{ secrets.IP }}:'C:\\inetpub\\wwwroot\\'
+        run: sshpass -p StrictHostKeyChecking=no "${{secrets.REMOTE_PASS}}" scp -r project3 ${{ secrets.USERNAME }}@${{ secrets.IP }}:'C:\inetpub\wwwroot\'
